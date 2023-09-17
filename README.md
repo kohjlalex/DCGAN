@@ -48,6 +48,7 @@ Progressively increase the spatial resolution of the feature maps in the generat
 Matching Generator and Discriminator Architectures: In GANs, it's common practice to design the generator and discriminator with architectures that are inversely related. The generator starts with low-resolution data and upscales it to generate high-resolution images, while the discriminator takes high-resolution images and downscales them to make judgments. This architectural symmetry helps the GAN capture meaningful features and textures at different resolutions. In summary, the downsampling in the discriminator allows it to learn hierarchical features, reduces computational complexity, acts as regularization, and enables the discrimination of high-level image structures. These features contribute to the overall training stability and quality of generated images in a GAN.
 
 The size of the image goes from 28 --> 14 --> 7 which is opposite of generator which does upscaling from 7 --> 14 --> 28
+
 H_out = [(H_in - K_height) / S_height] + 1
 
 Dropout is also used as a simple way to reduce overfitting by dropping out a % of neurons during training. 
@@ -64,8 +65,11 @@ Train for 100 epochs
 
 Visualisation of training:
 Note that the below are all newly generated images by our model's Generator based on the MNIST training dataset it was trained on.
+
 <img width="662" alt="Screenshot 2023-09-17 at 6 08 44 PM" src="https://github.com/kohjlalex/DCGAN/assets/109453797/65486403-360b-44b0-bfcf-49ab91fc1ba3">
 <img width="662" alt="Screenshot 2023-09-17 at 6 09 35 PM" src="https://github.com/kohjlalex/DCGAN/assets/109453797/7e1b8149-3777-49f7-bcb7-b15ef6f8a933">
 <img width="662" alt="Screenshot 2023-09-17 at 6 09 57 PM" src="https://github.com/kohjlalex/DCGAN/assets/109453797/bae07b9b-bb63-4fc7-a5b7-3ffc523c72a3">
 <img width="662" alt="Screenshot 2023-09-17 at 6 10 14 PM" src="https://github.com/kohjlalex/DCGAN/assets/109453797/760307a9-a411-4059-8bd6-59a2c41df3b7">
 <img width="662" alt="Screenshot 2023-09-17 at 6 10 29 PM" src="https://github.com/kohjlalex/DCGAN/assets/109453797/7b4012cb-d1e6-4973-8c36-08ff0a15155f">
+
+We can see the images generated increasingly resemble clothings and accessories as the number of epochs increases.
